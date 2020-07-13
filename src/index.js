@@ -27,6 +27,6 @@ class Header extends React.Component {
 }
 
 render(
-    <App title='React 16.8' className='app'/>,
+    <App title='React 16.8' />,
     document.querySelector('#root')
 )
