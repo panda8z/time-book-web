@@ -8,6 +8,7 @@ export default function TodoHeader(props) {
         <h1> {props.children} </h1>
         <p>{props.desc}</p>
         <p>{props.x + props.y}</p>
+        <p>{props.z}</p>
     </div>);
 }
 
