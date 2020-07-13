@@ -4,7 +4,7 @@ export default class TodoInput extends Component {
   render() {
     return (
       <div>
-          <input type='text'/><button>添加</button>
+          <input type='text'/><button>{this.props.btnText}</button>
       </div>
     );
   }
