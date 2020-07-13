@@ -13,17 +13,36 @@ export default class App extends Component {
         super(props) // 使用 constructor 一定要调用super(props)
         this.state = {
             title: '待办事项',
-            desc: '今日事今日必'
+            desc: '今日事今日必',
+            todos: [
+                {
+                    id: 1,
+                    title: '吃饭',
+                    isCompleted: true
+                },
+                {
+                    id: 2,
+                    title: '睡觉',
+                    isCompleted: false
+                },
+            ]
         }
     }
     render() {
         console.log(this.props)
         return (<>
-            <TodoHeader desc={this.state.desc} x={1} y={2}>
+
+            {/* 渲染todos 数组 */}
+            {this.state.todos.map((item, index, list) => {
+                return (<div>
+                    {item.title}
+                </div>);
+            })}
+            {/* <TodoHeader desc={this.state.desc} x={1} y={2}>
                 {this.state.title}
             </TodoHeader>
             <TodoInput />
-            <TodoList />
+            <TodoList /> */}
         </>);
     }
 }
