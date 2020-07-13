@@ -6,6 +6,13 @@ import classNames from 'classnames'
 
 import './index.css'
 
+import styled from 'styled-components'
+
+const  Title = styled.h1`
+color: #0f0
+
+`
+
 class App extends React.Component {
 
     render() {
@@ -15,7 +22,7 @@ class App extends React.Component {
             <h1>Welcom!</h1>
             {/* jsx里面的js代码用 {} 包裹 */}
             <p>{this.props.title}</p>
-
+            <Title>使用Styled-components创建的自身本就带样式的标题</Title>
             <ol>
                 <li style={{ color: '#f00', fontSize: '24px' }}>使用内联style属性定义样式</li>
                 <li className="has-text-red">使用class + css类选择器定义属性 class要写成className</li>
