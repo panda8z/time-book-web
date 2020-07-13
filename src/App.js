@@ -31,18 +31,10 @@ export default class App extends Component {
     render() {
         console.log(this.props)
         return (<>
-
-            {/* 渲染todos 数组 */}
-            {this.state.todos.map((item, index, list) => {
-                return (<div key={index+''}>
-                    {item.title}
-                </div>);
-            })}
-            {/* <TodoHeader desc={this.state.desc} x={1} y={2}>
-                {this.state.title}
-            </TodoHeader>
+            <TodoHeader title={this.state.title} desc={this.state.desc}/>
             <TodoInput />
-            <TodoList /> */}
+            {/* 渲染todos 数组 */}
+            <TodoList todos={this.state.todos}/>
         </>);
     }
 }
