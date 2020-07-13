@@ -11,8 +11,9 @@ export default function TodoHeader(props) {
     </div>);
 }
 
+// 不仅可以检查参数类型 ，还可以检测是否是必须的。
 TodoHeader.propTypes ={
     desc: PropTypes.string,
-    x: PropTypes.number,
-    y: PropTypes.number
+    x: PropTypes.number.isRequired,
+    y: PropTypes.number.isRequired
 }
