@@ -8,7 +8,7 @@ class App extends React.Component {
 
     render() {
         console.log(this.props)
-        return (<div className='body'>
+        return (<div className='body' style={{backgroundColor: 'red',}}>
             <Header headerTitle="Headddder"/>
             <h1>Welcom!</h1>
             {/* jsx里面的js代码用 {} 包裹 */}
