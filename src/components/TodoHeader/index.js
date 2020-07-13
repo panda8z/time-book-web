@@ -1,11 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export default class TodoHeader extends Component {
+import PropTypes from 'prop-types'
 
-    render() {
-        return (<div>
-            <h1> {this.props.children} </h1>
-            <p>{this.props.desc}</p>
-        </div>);
-    }
+export default function TodoHeader(props) {
+
+    return (<div>
+        <h1> {props.children} </h1>
+        <p>{props.desc}</p>
+        <p>{props.x + props.y}</p>
+    </div>);
+}
+
+TodoHeader.propTypes ={
+    desc: PropTypes.string,
+    x: PropTypes.number,
+    y: PropTypes.number
 }
