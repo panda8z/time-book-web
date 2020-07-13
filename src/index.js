@@ -2,9 +2,11 @@ import React from 'react'
 
 import ReactDOM from 'react-dom'
 
-const createApp = (props) => {
+// 这是一个箭头函数定义的方法。
+const createApp = (props) => { 
     return <div>
     <h1>Welcom!</h1>
+    {/* jsx里面的js代码用 {} 包裹 */}
     <p>{props.title}</p>
 </div>
 }
