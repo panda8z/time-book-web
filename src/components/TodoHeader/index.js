@@ -15,5 +15,6 @@ export default function TodoHeader(props) {
 TodoHeader.propTypes ={
     desc: PropTypes.string,
     x: PropTypes.number.isRequired,
-    y: PropTypes.number.isRequired
+    y: PropTypes.number.isRequired,
+    z: PropTypes.string.isRequired
 }
