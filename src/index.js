@@ -2,12 +2,13 @@ import React from 'react'
 
 import {render} from 'react-dom'
 
+import './index.css'
 
 class App extends React.Component {
 
     render() {
         console.log(this.props)
-        return (<div class='body'>
+        return (<div className='body'>
             <Header headerTitle="Headddder"/>
             <h1>Welcom!</h1>
             {/* jsx里面的js代码用 {} 包裹 */}
@@ -18,14 +19,14 @@ class App extends React.Component {
 
 class Header extends React.Component {
     render() {
-        return (<div class='header'>
+        return (<div className='header'>
                 <h2>I`m Header of this!</h2>
-    <p>{this.props.headerTitle}</p>
+                <p>{this.props.headerTitle}</p>
         </div>)
     }
 }
 
 render(
-    <App title='React 16.8'/>,
+    <App title='React 16.8' className='app'/>,
     document.querySelector('#root')
 )
