@@ -8,7 +8,7 @@ export default class App extends Component {
        <TodoHeader desc="今日事今日必" x={1} y={2}>
        Todo事项
        </TodoHeader>
-       <TodoInput btnText="Add"/>
+       <TodoInput />
        <TodoList/>
     </>);
   }
