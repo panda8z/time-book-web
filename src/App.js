@@ -34,7 +34,7 @@ export default class App extends Component {
 
             {/* 渲染todos 数组 */}
             {this.state.todos.map((item, index, list) => {
-                return (<div key={index+""}>
+                return (<div key={index+''}>
                     {item.title}
                 </div>);
             })}
