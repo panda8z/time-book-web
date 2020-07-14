@@ -10,7 +10,9 @@ export default class Like extends Component {
         }
     }
     handleLikeClick(){
-        this.setState({isLike: !this.state.isLike})
+        this.setState({isLike: !this.state.isLike},()=>{
+            console.log(this.state.isLike)
+        })
     }
     render() {
         return (
