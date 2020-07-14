@@ -27,6 +27,10 @@ export default class TodoInput extends Component {
         this.setState({inputValue: e.currentTarget.value})
     }
 
+    handleAddClick(e) {
+        console.log(e.currentTarget)
+    }
+
 
     render() {
         return (
@@ -36,7 +40,9 @@ export default class TodoInput extends Component {
                     value={this.state.inputValue}
                     onChange={this.handleInputChange.bind(this)}
                 />
-                <button>{this.props.btnText}</button>
+                <button
+                onClick={this.handleAddClick.bind(this)}
+                >{this.props.btnText}</button>
             </div>
         );
     }
