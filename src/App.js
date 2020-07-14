@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { TodoHeader, TodoInput, TodoList } from './components';
+import { TodoHeader, TodoInput, TodoList, Like } from './components';
+
 
 // 函数式组件 ，是无状态组件，因为他们有state 没有办法在组件内部自己修改自己。所以也叫它受控组件。
 // 类组件，是有状态组件，因为他有 props 和state 来接管外部通信和内部状态。
@@ -31,10 +32,11 @@ export default class App extends Component {
     render() {
         console.log(this.props)
         return (<>
-            <TodoHeader title={this.state.title} desc={this.state.desc}/>
+            <TodoHeader title={this.state.title} desc={this.state.desc} />
             <TodoInput />
             {/* 渲染todos 数组 */}
-            <TodoList todos={this.state.todos}/>
+            <TodoList todos={this.state.todos} />
+            <span><Like /></span>
         </>);
     }
 }
