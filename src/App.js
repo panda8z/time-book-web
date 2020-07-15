@@ -49,7 +49,7 @@ export default class App extends Component {
         // }
         // this.setState({todos: this.state.todos})
 
-        this.setState((preState)=>{
+        this.setState((preState) => {
             return {
                 todos: preState.todos.map(todo => {
                     if (todo.id === id) {
@@ -73,3 +73,44 @@ export default class App extends Component {
 }
 
 
+
+
+/*
+React.Component 的生命周期
+
+Mounting
+    1. constructor（）
+    2. static getDerviedStateFromProps（）
+    3. render（）
+    4. componentDidMount（）
+    注意：新代码中避免使用 UNSAFE_componentWillMount（）
+
+Updating
+    1. static getDerviedStateFromProps（）
+    2. shouldComponentUpdate（）
+    3. render（）
+    4. getSnapshotBerforeUpdate（）
+    5. componentDidUpdate（）
+    注意： UNSAFE_componentWillUpate（）和
+    UNSAFE_componentWillReciveProps（）不建议在新代码中使用
+
+Unmounting
+    1. componentWillUnmount（）
+
+Error Handling
+    1. static getDerviedS塔特FRomError（）
+    2. componentDidCatch（）
+
+React.Component 的 其他APIs
+
+    1. setState（）
+    2. forceUpdate（）
+
+React.Component 的类属性
+    1. defualtProps
+    2. displayName
+
+React.Component 的实例属性
+    1. props
+    2. state
+*/

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PureComponent } from 'react';
 
 export default class TodoItem extends Component {
 
@@ -10,6 +10,28 @@ export default class TodoItem extends Component {
 
         }
     }
+    // static getDerivedStateFromProps()
+
+    //WARNING! To be deprecated in React v17. Use componentDidMount instead.
+    // componentWillMount() {
+
+    // }
+    // componentDidMount() {
+
+    // }
+    // componentWillUnmount() {
+
+    // }
+    //WARNING! To be deprecated in React v17. Use componentDidUpdate instead.
+    // componentWillUpdate(nextProps, nextState) {
+
+    // }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        console.log('nextProps=', nextProps)
+        console.log('nextState=', nextState)
+        return nextProps.isCompleted !== this.props.isCompleted
+    }
 
     handleChange() {
         this.setState({ isCompleted: !this.state.isCompleted }, () => {
@@ -17,6 +39,7 @@ export default class TodoItem extends Component {
         })
     }
     render() {
+        console.log('render', this.props.title)
         return (
             <li>
                 <input
