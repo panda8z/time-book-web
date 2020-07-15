@@ -11,7 +11,8 @@ export default class TodoList extends Component {
             id: PropTypes.number.isRequired,
             title: PropTypes.string.isRequired,
             isCompleted: PropTypes.bool.isRequired
-        }))
+        })),
+        onCompletedChange: PropTypes.func
     }
 
     constructor(props) {
@@ -26,6 +27,7 @@ export default class TodoList extends Component {
             <ul>
                 {this.props.todos.map((item, index, list) => {
                     return (<TodoItem
+                        onCompletedChange={this.props.onCompletedChange}
                         key={index + ''}
                         {...item}
                     />);

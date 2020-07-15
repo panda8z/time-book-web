@@ -40,12 +40,33 @@ export default class App extends Component {
         })
     }
 
+    onCompletedChange(id) {
+        // for (let index = 0; index < this.state.todos.length; index++) {
+        //     const todo = this.state.todos[index];
+        //     if (todo.id == id) {
+        //         todo.isCompleted = !todo.isCompleted
+        //     }
+        // }
+        // this.setState({todos: this.state.todos})
+
+        this.setState((preState)=>{
+            return {
+                todos: preState.todos.map(todo => {
+                    if (todo.id === id) {
+                        todo.isCompleted = !todo.isCompleted
+                    }
+                    return todo
+                })
+            }
+        })
+    }
+
     render() {
         return (<>
             <TodoHeader title={this.state.title} desc={this.state.desc} />
             <TodoInput addTodo={this.addTodo.bind(this)} />
             {/* 渲染todos 数组 */}
-            <TodoList todos={this.state.todos} />
+            <TodoList todos={this.state.todos} onCompletedChange={this.onCompletedChange.bind(this)} />
             <span><Like /></span>
         </>);
     }
