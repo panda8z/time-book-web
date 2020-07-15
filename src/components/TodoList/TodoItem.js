@@ -13,7 +13,7 @@ export default class TodoItem extends Component {
 
     handleChange() {
         this.setState({ isCompleted: !this.state.isCompleted }, () => {
-            this.props.onCompletedChange(this.props.id)
+            this.props.onCompletedChange && this.props.onCompletedChange(this.props.id)
         })
     }
     render() {
