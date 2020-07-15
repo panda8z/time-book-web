@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+// 在react中使用ref必须先导入 createRef 方法。
+import React, { Component, createRef } from 'react';
 
 import PropTypes from 'prop-types';
 
@@ -16,6 +17,7 @@ export default class TodoInput extends Component {
 
     constructor(props) {
         super(props)
+        this.inputDom = createRef()
 
         this.state = {
             inputValue: 'xxx',
@@ -23,16 +25,23 @@ export default class TodoInput extends Component {
     }
 
     handleInputChange(e) {
-        console.log(e.currentTarget)
         this.setState({ inputValue: e.currentTarget.value })
     }
 
     handleAddClick() {
-       if(this.state.inputValue != '' && this.state.inputValue.length > 0) {
-           this.props.addTodo(this.state.inputValue)
-       }
+        if (this.state.inputValue != '' && this.state.inputValue.length > 0) {
+            this.props.addTodo(this.state.inputValue)
+            this.setState({ inputValue: '' }, () => {
+                this.inputDom.current.focus()
+            })
+        }
     }
 
+    handleKeyup(e) {
+        if (e.keyCode === 13) {
+            this.handleAddClick()
+        }
+    }
 
     render() {
         return (
@@ -41,6 +50,8 @@ export default class TodoInput extends Component {
                     type='text'
                     value={this.state.inputValue}
                     onChange={this.handleInputChange.bind(this)}
+                    onKeyUp={this.handleKeyup.bind(this)}
+                    ref={this.inputDom}
                 />
                 <button
                     onClick={this.handleAddClick.bind(this)}

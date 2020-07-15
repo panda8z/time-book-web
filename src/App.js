@@ -39,9 +39,8 @@ export default class App extends Component {
             })
         })
     }
-    
+
     render() {
-        console.log(this.props)
         return (<>
             <TodoHeader title={this.state.title} desc={this.state.desc} />
             <TodoInput addTodo={this.addTodo.bind(this)} />
