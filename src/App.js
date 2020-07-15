@@ -29,11 +29,22 @@ export default class App extends Component {
             ]
         }
     }
+
+    addTodo(todo) {
+        this.setState({
+            todos: this.state.todos.concat({
+                id: this.state.todos.length + 1,
+                title: todo,
+                isCompleted: false
+            })
+        })
+    }
+    
     render() {
         console.log(this.props)
         return (<>
             <TodoHeader title={this.state.title} desc={this.state.desc} />
-            <TodoInput />
+            <TodoInput addTodo={this.addTodo.bind(this)} />
             {/* 渲染todos 数组 */}
             <TodoList todos={this.state.todos} />
             <span><Like /></span>
