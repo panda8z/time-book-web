@@ -18,8 +18,19 @@ const decreament = (id) => {
         }
     }
 }
+const decreamentAsync = id => dispatch => {
+    return setTimeout(() => {
+        dispatch({
+            type: actionTypes.CART_AMOUNT_DECREATENT,
+            payload: {
+                id
+            }
+        })
+    }, 2000);
+}
 
 export {
     increament,
-    decreament
+    decreament,
+    decreamentAsync
 }
