@@ -3,6 +3,26 @@ import React, { Component } from 'react'
 import { increament, decreament } from '../../actions/cart'
 
 export default class CartList extends Component {
+
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            cartList: []
+        }
+    }
+
+    getState() {
+        this.setState({
+            cartList: this.props.store.getState().cart
+        })
+    }
+
+    componentDidMount() {
+        this.getState()
+        this.props.store.subscribe(this.getState.bind(this))
+    }
+
     render() {
         return (
             <table>
@@ -15,7 +35,7 @@ export default class CartList extends Component {
                     </tr>
                 </thead>
                 <tbody>
-                    {this.props.store.getState().cart.cart.map(item => {
+                    {this.props.store.getState().cart.map(item => {
                         return (<tr>
                             <td>{item.id}</td>
                             <td>{item.title}</td>
@@ -23,11 +43,11 @@ export default class CartList extends Component {
                             <td>
                                 <button onClick={
                                     () => {
-                                        this.props.store.dispatch(increament('jian'))
+                                        this.props.store.dispatch(decreament(item.id))
                                     }}>-</button>
                                 <span>{item.count}</span>
                                 <button onClick={() => {
-                                    this.props.store.dispatch(increament('jia'))
+                                    this.props.store.dispatch(increament(item.id))
                                 }}>+</button>
                             </td>
                         </tr>)
