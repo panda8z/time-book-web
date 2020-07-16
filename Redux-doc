@@ -1,0 +1,16 @@
+Redux 的一些概念
+
+Flux 思想
+
+Redux核心概念：action 、 reducer、 subscribe、 state、 dispatch、 数据流
+
+action： 用于定义更改state动作
+reducer： 负责执行方法
+subscribe： 用于绑定 action和 Reducer
+state：只读的，被更改的状态
+dispatch：一个分发的方法让reducer执行action
+数据流：后来在
+
+redux中文文档： www.redux.org.cn
+
+
