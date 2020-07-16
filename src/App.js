@@ -2,6 +2,13 @@ import React, { Component } from 'react';
 import { TodoHeader, TodoInput, TodoList, Like } from './components';
 
 
+// 全局引入的方式
+// import * as services from './services'
+// React.Component.prototype.http = services
+
+import { getTodos } from './services'
+
+
 // 函数式组件 ，是无状态组件，因为他们有state 没有办法在组件内部自己修改自己。所以也叫它受控组件。
 // 类组件，是有状态组件，因为他有 props 和state 来接管外部通信和内部状态。
 
@@ -19,23 +26,38 @@ export default class App extends Component {
                 {
                     id: 1,
                     title: '吃饭',
-                    isCompleted: true
+                    completed: true
                 },
                 {
                     id: 2,
                     title: '睡觉',
-                    isCompleted: false
+                    completed: false
                 },
             ]
         }
     }
+
+    componentDidMount() {
+        getTodos()
+            .then((ret) => {
+                console.log(ret)
+                if (ret.status === 200) {
+                    this.setState({ todos: ret.data })
+                }
+            })
+            .catch(err => {
+                console.log('err:', err)
+            }).finally()
+    }
+
+
 
     addTodo(todo) {
         this.setState({
             todos: this.state.todos.concat({
                 id: this.state.todos.length + 1,
                 title: todo,
-                isCompleted: false
+                completed: false
             })
         })
     }
@@ -44,7 +66,7 @@ export default class App extends Component {
         // for (let index = 0; index < this.state.todos.length; index++) {
         //     const todo = this.state.todos[index];
         //     if (todo.id == id) {
-        //         todo.isCompleted = !todo.isCompleted
+        //         todo.completed = !todo.completed
         //     }
         // }
         // this.setState({todos: this.state.todos})
@@ -53,7 +75,7 @@ export default class App extends Component {
             return {
                 todos: preState.todos.map(todo => {
                     if (todo.id === id) {
-                        todo.isCompleted = !todo.isCompleted
+                        todo.completed = !todo.completed
                     }
                     return todo
                 })
