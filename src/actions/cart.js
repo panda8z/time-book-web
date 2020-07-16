@@ -1,7 +1,6 @@
 import actionTypes from './actionType'
 
 const increament = (id) => {
-    console.log(id)
     return {
         type: actionTypes.CART_AMOUNT_INCREATENT,
         payload: {
@@ -12,7 +11,6 @@ const increament = (id) => {
 
 
 const decreament = (id) => {
-    console.log(id)
     return {
         type: actionTypes.CART_AMOUNT_DECREATENT,
         payload: {

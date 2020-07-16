@@ -2,7 +2,9 @@ import React, { Component } from 'react'
 
 import { increament, decreament } from '../../actions/cart'
 
-export default class CartList extends Component {
+import { connect } from 'react-redux'
+
+class CartList extends Component {
 
     constructor(props) {
         super(props)
@@ -12,18 +14,8 @@ export default class CartList extends Component {
         }
     }
 
-    getState() {
-        this.setState({
-            cartList: this.props.store.getState().cart
-        })
-    }
-
-    componentDidMount() {
-        this.getState()
-        this.props.store.subscribe(this.getState.bind(this))
-    }
-
     render() {
+        console.log('cartList props', this.props)
         return (
             <table>
                 <thead>
@@ -35,19 +27,19 @@ export default class CartList extends Component {
                     </tr>
                 </thead>
                 <tbody>
-                    {this.props.store.getState().cart.map(item => {
-                        return (<tr>
+                    {this.props.cartList.map(item => {
+                        return (<tr key={item.id}>
                             <td>{item.id}</td>
                             <td>{item.title}</td>
                             <td>{item.price}</td>
                             <td>
                                 <button onClick={
                                     () => {
-                                        this.props.store.dispatch(decreament(item.id))
+                                        this.props.decreament(item.id)
                                     }}>-</button>
                                 <span>{item.count}</span>
                                 <button onClick={() => {
-                                    this.props.store.dispatch(increament(item.id))
+                                    this.props.increament(item.id)
                                 }}>+</button>
                             </td>
                         </tr>)
@@ -57,3 +49,9 @@ export default class CartList extends Component {
         )
     }
 }
+
+function mapState(state) {
+    console.log('state=', state)
+    return { cartList: state.cart }
+}
+export default connect(mapState, { increament, decreament })(CartList)
