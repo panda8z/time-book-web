@@ -14,3 +14,8 @@ dispatch：一个分发的方法让reducer执行action
 redux中文文档： www.redux.org.cn
 
 
+标准 Redux 工作模型
+
+1. 建立文件夹 reducers  actions store.js
+2. yarn add redux react-redux redux-thunk
+3. 创建 actionTypes reducer createState combineActions

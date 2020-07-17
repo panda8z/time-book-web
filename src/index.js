@@ -3,10 +3,11 @@ import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import App from './App'
 import store from './store'
+import {BlogList} from './components';
 
 render(
     <Provider store={store}>
-        <App />
+        <BlogList />
     </Provider>,
     document.querySelector('#root')
 )
